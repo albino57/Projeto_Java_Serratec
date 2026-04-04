@@ -95,13 +95,14 @@ public class Main {
 
             
 
-        limpar(); //Método que limpa a tela.
+            limpar(); //Método que limpa a tela.
         }while(opcao != 0);
+
         scan.close(); //Fecha o método Scanner.
     }
 
-//---Métodos---
-public static void limpar() throws IOException, InterruptedException {
+    //------------Métodos Auxiliares------------
+    public static void limpar() throws IOException, InterruptedException {
         final String os = System.getProperty("os.name"); //Variável que armazena o OS que está em uso.
         if(os == "Windows"){
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -111,14 +112,14 @@ public static void limpar() throws IOException, InterruptedException {
     }
 
 
-public static void logo(){
-    System.out.println("--- C a i x a   E l e t r ô n i c o ----\n");
-}
+    public static void logo(){
+        System.out.println("--- C a i x a   E l e t r ô n i c o ----\n");
+    }
 
 
-public static void menu(){
-    if(saques > 0){
-        System.out.print
+    public static void menu(){
+        if(saques > 0){
+            System.out.print
                 ("--- C a i x a   E l e t r ô n i c o ----\n" +
                  "\nSelecione uma opção" +
                  "\n1-Ver Saldo" +
@@ -127,9 +128,9 @@ public static void menu(){
                  "\n0-Sair"      +
                  "\n---------------------" + 
                  "\nDigite: "
-        );
-    }else{
-        System.out.print
+            );
+        }else{
+            System.out.print
                 ("--- C a i x a   E l e t r ô n i c o ----\n" +
                  "\nSelecione uma opção" +
                  "\n1-Ver Saldo" +
@@ -138,11 +139,11 @@ public static void menu(){
                  "\n0-Sair"      +
                 "\n---------------------" + 
                  "\nDigite: "
-        );
-    }
+            );
+        }
     
-}
-//---Métodos---
+    }
+    //------------Métodos Auxiliares------------
 }
 
 /*AJUDA
