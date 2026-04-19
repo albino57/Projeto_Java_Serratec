@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 /*
 * 4 - Um cadinho de tudo:
 Exercício: Sistema de Veículos.
@@ -10,15 +12,45 @@ Detalhes:
 - Criar classe filha CarroPasseio.
 *
 ---Regra de Negócio:
-- Ao calcular o valor da locação através do método alugarVeiculo(pesoCarga, dias), caso
+- Ao calcular o valor da locação através do metodo alugarVeiculo(pesoCarga, dias), caso
 o peso da carga informado seja maior que a capacidade máxima do caminhão, deverá
 ser aplicado um acréscimo de 10% sobre o valor total das diárias como taxa de sobrecarga.
+
+---Regra do Governo: Veículos com mais de 20 anos de fabricação são isentos de IPVA
+(retornam 0.0). Se for mais novo, o CarroPasseio paga 4% do valor de tabela e o
+Caminhao paga 1.5%.
+-Deverá ser tratada exceções para criação dos objetos(construtores) e exceções nas
+chamadas dos metodos, qualquer parametro inválido deve ser lançada uma exeção e
+tratada no metodo main
+
 */
 public class Main {
     public static void main(String[] args) {
+        try {
+            Caminhao caminhao1 = new Caminhao("Z4", "Ford", 500.0, 2006,
+                    70000.0, "3.0");
+            CarroPasseio carroPasseio1 = new CarroPasseio("A1", "Fiat", 200.0,
+                    2015, 20000.0, "1.0");
 
+        //Impressão Caminhão
+            System.out.printf("Preço do Aluguel\n\tCaminhão: %s \n\tPlaca: %s \n\tMotor: %s",
+                    caminhao1.getMarca(), caminhao1.getPlaca(), caminhao1.getMotor());
+            System.out.printf("\n\tValor Aluguel: %.2f \n\tValor IPVA: %.2f",
+                caminhao1.alugarVeiculo(3500,10), caminhao1.calcularIPVA());
+
+            System.out.println("\n-------------------------------------------------------------");
+            //Impressão Carro
+            System.out.printf("Preço do Aluguel\n\tCaminhão: %s \n\tPlaca: %s \n\tMotor: %s",
+                    carroPasseio1.getMarca(), carroPasseio1.getPlaca(), carroPasseio1.getMotor());
+            System.out.printf("\n\tValor Aluguel: %.2f \n\tValor IPVA: %.2f",
+                   carroPasseio1.alugarVeiculo(400,10), carroPasseio1.calcularIPVA());
+
+        }catch(IllegalArgumentException e){
+            System.out.println("Houve um erro bem desconhecido\n" + e.getMessage());
+        }
     }
 }
+
 
 /*AJUDA no printf (print formatado).
 %i  Integer

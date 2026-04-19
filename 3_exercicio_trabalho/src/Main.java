@@ -31,8 +31,6 @@ public class Main {
     }
 }
 
-
-
 /*AJUDA no printf (print formatado).
 %i  Integer
 %u  int positivos
